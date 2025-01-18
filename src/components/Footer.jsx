@@ -109,7 +109,7 @@ const Footer = () => {
         <div className="border-t mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Doc Online. All rights reserved.
+              © {new Date().getFullYear()} ⦁	Copyright 2025 Dinisu Clinic. All Rights Reserved.
             </p>
             <div className="flex gap-4">
               <Link to="/terms">

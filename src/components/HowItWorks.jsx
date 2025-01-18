@@ -1,122 +1,111 @@
-import React, { useRef, useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Pause, Play } from 'lucide-react';
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { UserCircle, Calendar, FileText, CreditCard, ArrowRight, CheckCircle } from 'lucide-react';
 
 const HowItWorks = () => {
-  const [isPlaying, setIsPlaying] = useState(false)
-
   const steps = [
     {
-      number: '01',
-      title: 'Search Doctor',
-      description: 'Find the perfect specialist for your needs using our advanced search system',
-      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
+      icon: UserCircle,
+      title: "Fill Personal Details",
+      description: "Start by providing your basic information including full name, contact details, and any symptoms or concerns you'd like to discuss.",
+      keyPoints: [
+        "Contact information",
+        "Medical concerns",
+        "Previous medical history"
+      ]
     },
     {
-      number: '02',
-      title: 'Check Doctor Profile',
-      description: 'Review detailed profiles, credentials, and patient reviews',
-      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-      </svg>
+      icon: Calendar,
+      title: "Choose Appointment",
+      description: "Select your preferred service and pick a date and time that works best for your schedule.",
+      keyPoints: [
+        "Select service type",
+        "View available dates",
+        "Pick convenient time slot"
+      ]
     },
     {
-      number: '03',
-      title: 'Schedule Appointment',
-      description: 'Book your preferred time slot instantly with our real-time scheduling system',
-      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
+      icon: CreditCard,
+      title: "Complete Payment",
+      description: "Secure your appointment by completing the payment process through our available payment methods.",
+      keyPoints: [
+        "Bank transfer",
+        "Mobile money",
+        "View service fees"
+      ]
     },
     {
-      number: '04',
-      title: 'Get Your Solution',
-      description: 'Receive personalized care and expert medical solutions',
-      icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    },
+      icon: CheckCircle,
+      title: "Receive Confirmation",
+      description: "Get instant confirmation of your booking with all appointment details sent to your email.",
+      keyPoints: [
+        "Booking reference",
+        "Appointment details",
+        "Preparation instructions"
+      ]
+    }
   ];
 
-  const videoRef = useRef(null);
-
-  // const handlePlay = () => {
-  //   setIsPlaying(true);
-  //   if (videoRef.current) {
-  //     videoRef.current.play().catch((err) => console.error("Video play error:", err));
-  //   } else {
-  //     console.error("Video reference is null");
-  //   }
-  // };
-
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="container px-4 mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 opacity-0 animate-[fadeIn_0.5s_ease-in_forwards]">
-            Your Journey to <span className='text-primary'>Better</span> Health
+    <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">
+            How to Book Your Consultation
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto opacity-0 animate-[fadeIn_0.5s_0.2s_ease-in_forwards]">
-            Experience seamless healthcare in four simple steps
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Follow these simple steps to schedule your appointment with our healthcare professionals
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl opacity-0 animate-[fadeIn_0.5s_0.4s_ease-in_forwards]">
-            <video
-              ref={videoRef}
-              src="/assets/medical-video.mp4"
-              className="w-full h-full object-cover"
-              muted
-              autoPlay
-              loop
-            ></video>
-            <div className="absolute inset-0 bg-gray-900/20 flex items-center justify-center group cursor-pointer hover:bg-gray-900/30 transition-all duration-300">
-              {/* <div onClick={handlePlay} className="w-20 h-20 cursor-pointer bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
-                {isPlaying ? <Pause className="w-8 h-8 text-primary ml-1" /> : <Play className="w-8 h-8 text-primary ml-1" />}
-              </div> */}
-            </div>
-
-            {/* <img
-              src="/api/placeholder/800/450"
-              alt="Medical consultation"
-              className="w-full h-full object-cover"
-            /> */}
-          </div>
-
-          <div className="space-y-6">
-            {steps.map((step, index) => (
-              <Card key={step.number} className="opacity-0 animate-[fadeIn_0.5s_ease-in_forwards]" style={{animationDelay: `${0.6 + index * 0.2}s`}}>
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
-                        {step.icon}
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-semibold text-primary">{step.number}</span>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{step.title}</h3>
-                      </div>
-                      <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
+        <div className="grid gap-8">
+          {steps.map((step, index) => (
+            <div key={index} className="relative">
+              {index !== steps.length - 1 && (
+                <div className="hidden md:block absolute left-[2.5rem] top-24 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 to-transparent">
+                  <ArrowRight className="absolute -bottom-4 -left-2 text-primary/40 rotate-90" />
+                </div>
+              )}
+              
+              <Card className="bg-white hover:shadow-lg transition-shadow duration-300">
+                <div className="p-6 flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <step.icon className="w-10 h-10 text-primary" />
                     </div>
                   </div>
-                </CardContent>
+                  
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                        Step {index + 1}
+                      </span>
+                      <h3 className="text-xl font-semibold text-gray-900">
+                        {step.title}
+                      </h3>
+                    </div>
+                    
+                    <p className="text-gray-600 mb-4">
+                      {step.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-3">
+                      {step.keyPoints.map((point, idx) => (
+                        <span 
+                          key={idx}
+                          className="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm"
+                        >
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </Card>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style> */}
     </section>
   );
 };

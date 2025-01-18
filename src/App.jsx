@@ -1,29 +1,34 @@
+import React, { Suspense, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import BookAppointment from "./pages/BookAppointment";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import AboutUs from "./pages/AboutUs";
+import ScrollToTop from "./components/ScrollToTop";
+const Home = React.lazy(() => import("./pages/Home"));
+const AboutUs = React.lazy(() => import("./pages/AboutUs"));
+const BookAppointment = React.lazy(() => import("./pages/BookAppointment"));
+const Services = React.lazy(() => import("./pages/Services"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
 
+const App = () => {
 
-function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/booking" element={<BookAppointment />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <ScrollToTop />
+      <Suspense fallback={<div className="loader text-center my-12 text-5xl font-semibold text-primary">Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/booking" element={<BookAppointment />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
       <Footer />
     </Router>
   );
-}
+};
 
 export default App;

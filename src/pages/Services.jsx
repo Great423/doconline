@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  Heart, 
-  Brain, 
-  Droplet, 
-  Bone, 
-  Eye,
+  Stethoscope,
+  UserCog,
+  Syringe,
+  Heart,
+  BookOpen,
+  Activity,
+  Scale,
   ArrowRight,
   Search,
   Star
 } from "lucide-react";
-import { FaTooth } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 
 const Services = () => {
@@ -20,86 +21,94 @@ const Services = () => {
 
   const categories = [
     { id: 'all', name: 'All Services' },
-    { id: 'popular', name: 'Most Popular' },
-    { id: 'specialized', name: 'Specialized Care' },
-    { id: 'preventive', name: 'Preventive Care' }
+    { id: 'medical', name: 'General Medicine' },
+    { id: 'support', name: 'Support Services' },
+    { id: 'wellness', name: 'Health & Wellness' }
   ];
 
   const specialties = [
     { 
-      name: "Cardiology", 
-      icon: Heart, 
-      description: "Expert heart care and comprehensive cardiovascular treatments for your heart health.", 
-      category: 'specialized',
+      name: "General Medicine", 
+      icon: Stethoscope,
+      description: "Comprehensive health assessments, diagnosis and management of acute and chronic conditions, plus preventive care and wellness checks.", 
+      category: 'medical',
+      rating: 4.9,
+      reviews: 245,
+      waitTime: "Same day",
+      bgColor: "bg-primary",
+      glowColor: "group-hover:shadow-primary/25"
+    },
+    { 
+      name: "Health Advocacy", 
+      icon: UserCog,
+      description: "Expert guidance in understanding diagnoses, medication management, and coordinated care with specialists for informed medical decisions.", 
+      category: 'support',
+      rating: 4.8,
+      reviews: 156,
+      waitTime: "1-2 days",
+      bgColor: "bg-secondary",
+      glowColor: "group-hover:shadow-secondary/25"
+    },
+    { 
+      name: "Anesthesia & Perioperative", 
+      icon: Syringe,
+      description: "Complete perioperative care including preoperative evaluations, personalized anesthesia plans, and postoperative recovery guidance.", 
+      category: 'medical',
       rating: 4.9,
       reviews: 128,
-      waitTime: "2-3 days",
+      waitTime: "By appointment",
       bgColor: "bg-primary",
       glowColor: "group-hover:shadow-primary/25"
     },
     { 
-      name: "Neurology", 
-      icon: Brain, 
-      description: "Specialized care for brain and nervous system conditions with advanced treatments.", 
-      category: 'specialized',
+      name: "Health & Wellness Coaching", 
+      icon: Heart,
+      description: "Personalized lifestyle and dietary guidance, stress management techniques, and ongoing support for achieving your health goals.", 
+      category: 'wellness',
       rating: 4.8,
-      reviews: 96,
-      waitTime: "1-2 days",
+      reviews: 184,
+      waitTime: "2-3 days",
       bgColor: "bg-secondary",
       glowColor: "group-hover:shadow-secondary/25"
     },
     { 
-      name: "Urology", 
-      icon: Droplet, 
-      description: "Professional treatment for urinary tract issues and urological health.", 
-      category: 'specialized',
-      rating: 4.7,
-      reviews: 84,
-      waitTime: "2-4 days",
-      bgColor: "bg-primary",
-      glowColor: "group-hover:shadow-primary/25"
-    },
-    { 
-      name: "Dentistry", 
-      icon: FaTooth, 
-      description: "Complete dental care solutions for maintaining your perfect smile.", 
-      category: 'preventive',
-      rating: 4.9,
-      reviews: 156,
-      waitTime: "1 day",
-      bgColor: "bg-secondary",
-      glowColor: "group-hover:shadow-secondary/25"
-    },
-    { 
-      name: "Orthopedics", 
-      icon: Bone, 
-      description: "Specialized care for bone and joint health to keep you moving.", 
-      category: 'specialized',
-      rating: 4.8,
-      reviews: 112,
-      waitTime: "2-3 days",
-      bgColor: "bg-primary",
-      glowColor: "group-hover:shadow-primary/25"
-    },
-    { 
-      name: "Ophthalmology", 
-      icon: Eye, 
-      description: "Comprehensive eye care services from experienced vision specialists.", 
-      category: 'preventive',
+      name: "Patient Education", 
+      icon: BookOpen,
+      description: "Comprehensive education programs designed to empower patients with knowledge and understanding of their health conditions.", 
+      category: 'support',
       rating: 4.7,
       reviews: 92,
+      waitTime: "Same day",
+      bgColor: "bg-primary",
+      glowColor: "group-hover:shadow-primary/25"
+    },
+    { 
+      name: "Preventive Care", 
+      icon: Activity,
+      description: "Proactive health maintenance through regular check-ups, screenings, and preventive wellness services.", 
+      category: 'medical',
+      rating: 4.9,
+      reviews: 216,
       waitTime: "1-2 days",
       bgColor: "bg-secondary",
       glowColor: "group-hover:shadow-secondary/25"
+    },
+    { 
+      name: "Lifestyle Medicine", 
+      icon: Scale,
+      description: "Evidence-based lifestyle interventions to prevent, treat, and reverse chronic diseases through healthy behaviors.", 
+      category: 'wellness',
+      rating: 4.8,
+      reviews: 148,
+      waitTime: "2-3 days",
+      bgColor: "bg-primary",
+      glowColor: "group-hover:shadow-primary/25"
     }
   ];
 
   const filteredSpecialties = specialties
     .filter(specialty => {
-      // First filter by category
       const matchesCategory = selectedCategory === 'all' || specialty.category === selectedCategory;
-      
-      // Then filter by search query
       const searchTerm = searchQuery.toLowerCase().trim();
       const matchesSearch = searchTerm === '' || 
         specialty.name.toLowerCase().includes(searchTerm) ||
@@ -115,10 +124,10 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              Medical Services
+              Comprehensive Medical Services
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Experience world-class healthcare with our comprehensive range of medical services
+              Designed for Your Complete Healthcare Journey
             </p>
             <div className="relative max-w-xl mx-auto">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -212,7 +221,7 @@ const Services = () => {
                           <Button
                             className="w-full group/button bg-primary hover:bg-primary/90"
                           >
-                            <span className="font-medium">Book Appointment</span>
+                            <span className="font-medium">Learn More</span>
                             <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/button:translate-x-1" />
                           </Button>
                         </div>

@@ -14,7 +14,13 @@ import {
   Droplet, 
   Bone, 
   Eye,
-  ArrowRight
+  ArrowRight,
+  Stethoscope,
+  UserCog,
+  Syringe,
+  BookOpen,
+  Activity,
+  Scale
 } from "lucide-react";
 import { FaTooth } from "react-icons/fa";
 import { cn } from "@/lib/utils";
@@ -22,83 +28,89 @@ import { Link } from 'react-router-dom';
 
 const specialties = [
   { 
-    name: "Cardiology", 
-    icon: Heart, 
-    description: "Expert heart care and comprehensive cardiovascular treatments for your heart health.", 
-    link: "/book-appointment/cardiology",
+    name: "General Medicine", 
+    icon: Stethoscope,
+    description: "Comprehensive health assessments, diagnosis and management of acute and chronic conditions, plus preventive care and wellness checks.", 
+    link: "/book-appointment/general",
     bgColor: "bg-primary",
     textColor: "text-white",
     glowColor: "group-hover:shadow-primary/25"
   },
   { 
-    name: "Neurology", 
-    icon: Brain, 
-    description: "Specialized care for brain and nervous system conditions with advanced treatments.", 
-    link: "/book-appointment/neurology",
+    name: "Health Advocacy", 
+    icon: UserCog,
+    description: "Expert guidance in understanding diagnoses, medication management, and coordinated care with specialists for informed medical decisions.", 
+    link: "/book-appointment/advocacy",
     bgColor: "bg-secondary",
     textColor: "text-primary",
     glowColor: "group-hover:shadow-secondary/25"
   },
   { 
-    name: "Urology", 
-    icon: Droplet, 
-    description: "Professional treatment for urinary tract issues and urological health.", 
-    link: "/book-appointment/urology",
+    name: "Anesthesia & Perioperative", 
+    icon: Syringe,
+    description: "Complete perioperative care including preoperative evaluations, personalized anesthesia plans, and postoperative recovery guidance.", 
+    link: "/book-appointment/anesthesia",
     bgColor: "bg-primary",
     textColor: "text-white",
     glowColor: "group-hover:shadow-primary/25"
   },
   { 
-    name: "Dentistry", 
-    icon: FaTooth, 
-    description: "Complete dental care solutions for maintaining your perfect smile.", 
-    link: "/book-appointment/dentist",
+    name: "Health & Wellness Coaching", 
+    icon: Heart,
+    description: "Personalized lifestyle and dietary guidance, stress management techniques, and ongoing support for achieving your health goals.", 
+    link: "/book-appointment/wellness",
     bgColor: "bg-secondary",
     textColor: "text-primary",
     glowColor: "group-hover:shadow-secondary/25"
   },
   { 
-    name: "Orthopedics", 
-    icon: Bone, 
-    description: "Specialized care for bone and joint health to keep you moving.", 
-    link: "/book-appointment/orthopedic",
+    name: "Patient Education", 
+    icon: BookOpen,
+    description: "Comprehensive education programs designed to empower patients with knowledge and understanding of their health conditions.", 
+    link: "/book-appointment/education",
     bgColor: "bg-primary",
     textColor: "text-white",
     glowColor: "group-hover:shadow-primary/25"
   },
   { 
-    name: "Ophthalmology", 
-    icon: Eye, 
-    description: "Comprehensive eye care services from experienced vision specialists.", 
-    link: "/book-appointment/ophthalmology",
+    name: "Preventive Care", 
+    icon: Activity,
+    description: "Proactive health maintenance through regular check-ups, screenings, and preventive wellness services.", 
+    link: "/book-appointment/preventive",
     bgColor: "bg-secondary",
     textColor: "text-primary",
     glowColor: "group-hover:shadow-secondary/25"
+  },
+  { 
+    name: "Lifestyle Medicine", 
+    icon: Scale,
+    description: "Evidence-based lifestyle interventions to prevent, treat, and reverse chronic diseases through healthy behaviors.", 
+    link: "/book-appointment/lifestyle",
+    bgColor: "bg-primary",
+    textColor: "text-white",
+    glowColor: "group-hover:shadow-primary/25"
   },
 ];
 
 export function ServicesSection() {
   return (
     <section className="relative overflow-hidden px-4">
-      {/* Decorative background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white">
         <div className="absolute inset-0 bg-grid-black bg-20" />
       </div>
       
-      {/* Carousel */}
       <Carousel
           opts={{
             align: "start",
           }}
           className="w-full max-w-7xl mx-auto py-24"
         >
-          {/* Header */}
           <div className="max-w-2xl mx-auto text-center mb-8">
             <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4">
-              Our Medical Specialties
+              Comprehensive Medical Services
             </h2>
             <p className="text-gray-600 text-lg">
-              Exceptional Healthcare Services by Expert Specialists
+              Designed for Your Complete Healthcare Journey
             </p>
           </div>
           <CarouselContent className="-ml-2 md:-ml-4 pb-16 mt-8">
@@ -114,7 +126,6 @@ export function ServicesSection() {
                   )}>
                     <CardContent className="p-6 md:p-8">
                       <div className="flex flex-col h-full space-y-6">
-                        {/* Icon Container */}
                         <div className={cn(
                           "w-16 h-16 rounded-xl flex items-center justify-center",
                           "bg-opacity-10 relative overflow-hidden",
@@ -126,7 +137,6 @@ export function ServicesSection() {
                           <Icon className={`${specialty.textColor} w-8 h-8 relative z-10`} />
                         </div>
                         
-                        {/* Content */}
                         <div className="flex-grow space-y-3">
                           <h3 className="text-xl font-semibold text-gray-900">
                             {specialty.name}
@@ -136,7 +146,6 @@ export function ServicesSection() {
                           </p>
                         </div>
                         
-                        {/* Button */}
                         <Button
                           asChild
                           className={cn(
@@ -147,7 +156,7 @@ export function ServicesSection() {
                           )}
                         >
                           <a href={specialty.link} className="flex items-center justify-between">
-                            <span className="font-medium">Book Appointment</span>
+                            <span className="font-medium">Learn More</span>
                             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/button:translate-x-1" />
                           </a>
                         </Button>
@@ -161,7 +170,7 @@ export function ServicesSection() {
           <div className='w-full flex justify-center group'>
             <Link to="/services">
               <Button size="lg" variant="outline" className="h-12 px-8 group-hover:text-primary">
-                View Services
+                View All Services
               </Button>
             </Link>
           </div>

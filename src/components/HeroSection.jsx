@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator"
-import { ArrowRight, Award, ScrollText, Search, Calendar, Stethoscope } from "lucide-react";
+import { ArrowRight, Award, ScrollText, Search, Calendar, Stethoscope, ClipboardCheck, MessageCircle } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -25,8 +25,9 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-gray-600 lg:text-lg max-w-xl">
-              Experience healthcare reimagined with Dinisu Clinic. Modern facilities, 
-              compassionate care, and innovative solutions for your well-being.
+              Your trusted partner in health and well-being.
+              At Dinisu Clinic, we are dedicated to providing comprehensive and compassionate care, tailored to meet your individual needs.
+              Explore our services and discover how we can support your well-being at every stage of your health journey.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -81,52 +82,41 @@ const HeroSection = () => {
         <div className="grid divide-x divide-gray-100/10 overflow-hidden rounded-3xl sm:grid-cols-3 lg:divide-y-0 xl:grid-cols-3 w-full">
           {[
             {
-              icon: <Search className="w-8 h-8 text-white" />,
-              title: "Search Doctor",
-              description: "Find the perfect specialist for your healthcare needs",
-              background: "black",
+              icon: <Calendar className="w-8 h-8 text-white" />,
+              title: "Book Appointment",
+              description: "Easily schedule your visit online.",
+              background: "bg-primary",
               blob: "bg-primary/20"
             },
             {
-              icon: <Calendar className="w-8 h-8 text-white" />,
-              title: "Appointment",
-              description: "Schedule your visit at your convenience",
-              background: "black",
-              blob: "bg-blue-500/20"
+              icon: <ClipboardCheck className="w-8 h-8 text-white" />,
+              title: "Consultation Details",
+              description: "Learn about your appointment details.",
+              background: "bg-green-500",
+              blob: "bg-green-500/20"
             },
             {
-              icon: <Stethoscope className="w-8 h-8 text-white" />,
-              title: "Get Solution",
-              description: "Receive personalized care and treatment plans",
-              background: "black",
-              blob: "bg-cyan-500/20"
+              icon: <MessageCircle className="w-8 h-8 text-white" />,
+              title: "Ask a Question",
+              description: "Get answers to your health concerns.",
+              background: "bg-blue-500",
+              blob: "bg-blue-500/20"
             },
           ].map((step, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden"
-            >
-              {/* Blurred blob background */}
+            <div key={index} className="group relative overflow-hidden">
               <div className={`absolute w-[200px] h-[200px] rounded-full filter blur-[80px] ${step.blob} -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} />
-              
-              <div className={`relative flex flex-col items-center space-y-4 p-8 bg-black/80 backdrop-blur-md h-full group-hover:shadow-xl`}>
-                {/* Icon container with glass effect */}
+              <div className="relative flex flex-col items-center space-y-4 p-8 bg-black/80 backdrop-blur-md h-full group-hover:shadow-xl">
                 <div className="p-4 rounded-2xl bg-white/10 transition-transform group-hover:scale-[1.03]">
                   {step.icon}
                 </div>
-                
-                <div className="space-y-2 text-center transition-transform group-hover:scale-[1.03]">
+                <div className="space-y-2 text-center">
                   <h5 className="text-xl font-semibold text-white">
                     {step.title}
                   </h5>
-                  <p className="text-gray-100/80 text-sm transition-transform group-hover:scale-[1.03]">
+                  <p className="text-gray-100/80 text-sm">
                     {step.description}
                   </p>
                 </div>
-
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-full transform translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/5 rounded-full transform -translate-x-1/2 translate-y-1/2" />
               </div>
             </div>
           ))}

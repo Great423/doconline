@@ -23,15 +23,17 @@ const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-20 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center h-10">
             <img
               src="/src/assets/doc-logo.png"
-              className="h-9 sm:h-12"
+              className="w-full h-full"
               alt="Logo"
             />
-            <span className="text-xl font-bold whitespace-nowrap dark:text-white">
-              Doc Online
-            </span>
+            <img
+              src="/src/assets/dinisulogoword.png"
+              className="w-full h-full"
+              alt="Logo"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -95,7 +97,7 @@ const Navbar = () => {
                 </Link>
               ))}
             </div>
-            <Link to="/signup">
+            <Link to="/booking">
               <Button className="w-full rounded-full text-primary bg-white hover:bg-primary/10 ring-1 ring-primary">
                 Book Appointment
                 <div className="bg-primary/80 h-6 w-6 rounded-full flex items-center justify-center ml-2">
