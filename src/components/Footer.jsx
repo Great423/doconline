@@ -29,7 +29,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/src/assets/doc-logo.png"
+                src="/public/assets/doc-logo.png"
                 className="h-9 sm:h-12"
                 alt="Logo"
               />

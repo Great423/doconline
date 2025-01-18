@@ -39,7 +39,7 @@ const AboutUs = () => {
         "MPH, Public Health, St. Georges' University",
         "Clinical Tutor, St. George's University"
       ],
-      image: "/src/assets/dinisuceo3.jpg",
+      image: "/public/assets/dinisuceo3.jpg",
       isCEO: true
     },
     {
@@ -143,7 +143,7 @@ const AboutUs = () => {
             <div className="relative">
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5]">
                 <img 
-                  src="/src/assets/doctor-patient.jpg" 
+                  src="/public/assets/doctor-patient.jpg" 
                   className="h-full w-full object-cover transform scale-105 hover:scale-100 transition-transform duration-700"
                   alt="doctor-patient" 
                 />
@@ -170,7 +170,7 @@ const AboutUs = () => {
 
       {/* Stats Section */}
       <section className="relative py-16 bg-primary/80 text-white">
-        <img src="/src/assets/cta.jpg" className='absolute top-0 -z-20 object-cover w-full h-full' alt="cta" />
+        <img src="/public/assets/cta.jpg" className='absolute top-0 -z-20 object-cover w-full h-full' alt="cta" />
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
             {[
@@ -337,10 +337,10 @@ const AboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { title: "Patient Consultation", type: "video" },
-              { title: "Medical Procedures", src: '/src/assets/doctor-patient.jpg', type: "image" },
-              { title: "Lab Analysis", src: '/src/assets/doctors-working2.webp', type: "image" },
+              { title: "Medical Procedures", src: '/public/assets/doctor-patient.jpg', type: "image" },
+              { title: "Lab Analysis", src: '/public/assets/doctors-working2.webp', type: "image" },
               { title: "Emergency Care", src: '',  type: "video" },
-              { title: "Physical Therapy", src: '/src/assets/doctors-working2.webp', type: "image" },
+              { title: "Physical Therapy", src: '/public/assets/doctors-working2.webp', type: "image" },
               { title: "Team Meetings", src: '',  type: "video" }
             ].map((item, index) => (
               <div key={index} className="relative rounded-xl overflow-hidden group">

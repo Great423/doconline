@@ -159,7 +159,7 @@ const Contact = () => {
               {/* FAQ Link Card */}
               <Card className="relative bg-primary rounded-lg text-primary-foreground">
                 {/* Background image with overlay */}
-                <div className="absolute inset-0 z-0 rounded-lg bg-[url('/src/assets/social.jpeg')] bg-cover bg-center bg-no-repeat">
+                <div className="absolute inset-0 z-0 rounded-lg bg-[url('/public/assets/social.jpeg')] bg-cover bg-center bg-no-repeat">
                   {/* Dark overlay for better text readability */}
                   <div className="absolute inset-0 bg-primary/80 rounded-lg"></div>
                 </div>

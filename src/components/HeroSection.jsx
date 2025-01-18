@@ -7,7 +7,7 @@ import { ArrowRight, Award, ScrollText, Search, Calendar, Stethoscope, Clipboard
 const HeroSection = () => {
   return (
     <>
-      <img src="/src/assets/blob.webp" className="filter blur-[200px] absolute right-52 w-[500px] -z-10" alt="blob" />
+      <img src="/public/assets/blob.webp" className="filter blur-[200px] absolute right-52 w-[500px] -z-10" alt="blob" />
       <div className="relative flex flex-col items-center justify-end px-4 lg:px-20 lg:h-[90vh] overflow-hidden">
         <div className="container mx-auto py-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-0">
           {/* Left Content */}
@@ -44,7 +44,7 @@ const HeroSection = () => {
           {/* Right Image */}
           <div className="flex-1">
             <motion.img
-              src="/src/assets/doctor.png"
+              src="/public/assets/doctor.png"
               alt="Doctor folding hands"
               className="absolute bottom-4 w-full max-w-md lg:max-w-sm hidden lg:block"
               initial={{ opacity: 1, y: 100 }}
@@ -68,7 +68,7 @@ const HeroSection = () => {
           >
             <div className="flex items-center p-6">
               <img
-                src="/src/assets/dinisuceo1.jpg"
+                src="/public/assets/dinisuceo1.jpg"
                 alt="Avatar"
                 className="w-14 h-14 rounded-full border-2 border-gray-300 object-cover"
               />

@@ -25,12 +25,12 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center h-10">
             <img
-              src="/src/assets/doc-logo.png"
+              src="/public/assets/doc-logo.png"
               className="w-full h-full"
               alt="Logo"
             />
             <img
-              src="/src/assets/dinisulogoword.png"
+              src="/public/assets/dinisulogoword.png"
               className="w-full h-full"
               alt="Logo"
             />
