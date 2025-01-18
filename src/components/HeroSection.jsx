@@ -44,7 +44,7 @@ const HeroSection = () => {
           {/* Right Image */}
           <div className="flex-1">
             <motion.img
-              src="/public/assets/doctor.png"
+              src="/assets/doctor.png"
               alt="Doctor folding hands"
               className="absolute bottom-4 w-full max-w-md lg:max-w-sm hidden lg:block"
               initial={{ opacity: 1, y: 100 }}

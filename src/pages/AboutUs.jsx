@@ -339,9 +339,9 @@ const AboutUs = () => {
               { title: "Patient Consultation", type: "video" },
               { title: "Medical Procedures", src: '/public/assets/doctor-patient.jpg', type: "image" },
               { title: "Lab Analysis", src: '/public/assets/doctors-working2.webp', type: "image" },
-              { title: "Emergency Care", src: '',  type: "video" },
+              // { title: "Emergency Care", src: '',  type: "video" },
               { title: "Physical Therapy", src: '/public/assets/doctors-working2.webp', type: "image" },
-              { title: "Team Meetings", src: '',  type: "video" }
+              // { title: "Team Meetings", src: '',  type: "video" }
             ].map((item, index) => (
               <div key={index} className="relative rounded-xl overflow-hidden group">
                 {item.type === "image" ?
@@ -351,7 +351,7 @@ const AboutUs = () => {
                     className="w-full h-[300px] object-cover"
                   /> : 
                   <video
-                    src="/assets/medical-video.mp4"
+                    src="/public/assets/medical-video.mp4"
                     alt={item.title}
                     className="w-full h-[300px] object-cover"
                     muted
