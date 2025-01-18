@@ -1,0 +1,1 @@
+import{j as t}from"./index-CsVJu1ml.js";const s=()=>t.jsxs("div",{className:"text-center flex items-center justify-center gap-4 h-[55vh]",children:[t.jsx("h1",{className:"text-4xl font-bold text-primary",children:"404"}),t.jsx("p",{className:"text-lg text-dark",children:"Page Not Found"})]});export{s as default};
